@@ -2,10 +2,10 @@ const express = require('express');
 
 const routes = express.Router();
 
-// => ROTAS 
-routes.get('/', function(req,res){
-    res.json({message:'Olá - mundo!'})
-});
+const Usuario = require('./controllers/usuarios.controllers')
 
+// => ROTAS 
+routes.get('/', Usuario.index);
+routes.post('/usuario', Usuario.create)
 module.exports = routes;
 
