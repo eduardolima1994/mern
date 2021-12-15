@@ -8,6 +8,14 @@ const DataSchema = new mongoose.Schema({
     senha_usuario: String,
 },{
     timestamps:true,
-
 });
 
+DataSchema.pre('save', function(next){
+    if(!this.isModified("senha_usuario")){
+        return next();
+    }
+    this.senha_usuario = bcrypt.hashSync(this.senha_usuario,10);
+});
+
+const usuarios = mongoose.model('Usuarios', DataSchema);
+module.exports = usuarios;
