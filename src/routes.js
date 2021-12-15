@@ -6,6 +6,6 @@ const Usuario = require('./controllers/usuarios.controllers')
 
 // => ROTAS 
 routes.get('/', Usuario.index);
-routes.post('/api/usuario', Usuario.create)
+routes.post('/api/usuarios', Usuario.create);
 module.exports = routes;
 

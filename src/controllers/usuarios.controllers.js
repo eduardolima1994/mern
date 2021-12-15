@@ -1,5 +1,5 @@
 // => CONTROLLERS 
-
+const Usuario = require('../models/usuario.model')
 
 module.exports = {
     index(req,res){
