@@ -1,5 +1,5 @@
 // => CONTROLLERS 
-const Usuario = require('../models/usuario.model')
+const Usuario = require('../models/usuario.model');
 
 module.exports = {
     index(req,res){
@@ -11,7 +11,7 @@ module.exports = {
 
         let data = {};
 
-        let user = Usuario.findOne({email_usuario});
+        let user = await Usuario.findOne({email_usuario});
         if(!user){
             data = {nome_usuario, email_usuario, tipo_usuario, senha_usuario};
             user = await Usuario.create(data);

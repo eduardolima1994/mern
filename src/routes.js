@@ -2,7 +2,7 @@ const express = require('express');
 
 const routes = express.Router();
 
-const Usuario = require('./controllers/usuarios.controllers')
+const Usuario = require('./controllers/usuarios.controller')
 
 // => ROTAS 
 routes.get('/', Usuario.index);
