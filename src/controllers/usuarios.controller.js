@@ -2,8 +2,9 @@
 const Usuario = require('../models/usuario.model');
 
 module.exports = {
-    index(req,res){
-        res.json({message:'Olá - mundo!'});
+    async index(req,res){
+        const user = await Usuario.find();
+        res.json(user);
     },
 
     async create(req,res){
@@ -19,5 +20,11 @@ module.exports = {
         }else{
             return res.status(500).json(user);
         }
-    }
+    },
+
+    async details(req,res){
+        const {_id} = req.params;
+        const user = await Usuario.findOne({_id});
+        res.json(user);
+    },
 }
