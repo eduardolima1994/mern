@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Inicio from './pages/client/painel';
+import Routes from './routes'
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
       </header>
       */}
 
-      <Inicio />
+      <Routes />
     </div>
   );
 }
