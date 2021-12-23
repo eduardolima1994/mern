@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-
 import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin'
-
 import ImgAdmin from '../../../assets/img/admin.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -33,16 +30,12 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
- 
 }));
-
 
 export default function Dashboard() {
   const classes = useStyles();
-  
   return (
-    <div className={classes.root}>
-      
+    <div className={classes.root}> 
       <MenuAdmin title={'DASHBOARD'}/>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
