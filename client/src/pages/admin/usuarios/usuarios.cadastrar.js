@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@mui/material/TextField';
 import Box from '@material-ui/core/Box';
@@ -11,6 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +44,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UsuarioCadastrar() {
   const classes = useStyles();
+
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [tipo, setTipo] = useState('');
+
+  function handleSubmit() {
+      const data = {
+        nome_usuario: nome, 
+        email_usuario: email, 
+        senha_usuario: senha, 
+        tipo_usuario: tipo,
+      };
+      console.log(data)
+  }
+
   return (
     <div className={classes.root}>
       <MenuAdmin title={'USUÁRIOS'} />
@@ -63,6 +80,8 @@ export default function UsuarioCadastrar() {
                       fullWidth
                       autoComplete="given-name"
                       variant="standard"
+                      value={nome}
+                      onChange={e => setNome(e.target.value)}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -74,6 +93,8 @@ export default function UsuarioCadastrar() {
                       fullWidth
                       autoComplete="family-name"
                       variant="standard"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                     />
                   </Grid>
                   <FormControl className={classes.formControl} variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -81,9 +102,8 @@ export default function UsuarioCadastrar() {
                     <Select
                       labelId="labelTipo"
                       id="tipo"
-                      //value={age}
-                      //onChange={handleChange}
-                      //label="Age"
+                      value={tipo}
+                      onChange={e => setTipo(e.target.value)}
                     >
                       
                       <MenuItem value={1}>Administrador</MenuItem>
@@ -100,7 +120,12 @@ export default function UsuarioCadastrar() {
                       fullWidth
                       autoComplete="senha"
                       variant="standard"
+                      value={senha}
+                      onChange={e => setSenha(e.target.value)}
                     />
+                  </Grid>
+                  <Grid item sm={12} xs={12}>
+                    <Button variant="contained" onClick={handleSubmit}>Salvar</Button>
                   </Grid>
                 </Grid>
               </Paper>
