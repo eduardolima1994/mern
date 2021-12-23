@@ -13,6 +13,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 
+import api from '../../../services/api'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -50,14 +52,20 @@ export default function UsuarioCadastrar() {
   const [senha, setSenha] = useState('');
   const [tipo, setTipo] = useState('');
 
-  function handleSubmit() {
+  async function handleSubmit() {
       const data = {
         nome_usuario: nome, 
         email_usuario: email, 
         senha_usuario: senha, 
         tipo_usuario: tipo,
       };
-      console.log(data)
+      const response = await api.post('/api/usuarios', data);
+
+      if (response.status === 200){
+        window.location.href='/admin/usuarios';
+      }else{
+        alert('Erro ao cadastrar usuário!');
+      }
   }
 
   return (
