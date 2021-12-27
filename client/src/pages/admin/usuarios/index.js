@@ -12,6 +12,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 import api from '../../../services/api'
 
@@ -87,10 +91,29 @@ export default function UsuariosListagem() {
                               <TableCell component="th" scope="row">
                                 {row.nome_usuario}
                               </TableCell>
-                              <TableCell>{row.email_usuario}</TableCell>
-                              <TableCell>{row.tipo_usuario === 1 ? 'Administrador' : 'Usuário Comum'}</TableCell>
-                              <TableCell>{row.createdAt}</TableCell>
-                              <TableCell align="right">Botões</TableCell>
+                              <TableCell align="center">{row.email_usuario}</TableCell>
+                              <TableCell align="center">{row.tipo_usuario === 1 ? 
+                              <>
+                                  <Stack spacing={1} alignItems="center">
+                                    <Stack direction="row" spacing={1}>
+                                      <Chip label="Administrador" color="primary" />
+                                    </Stack>
+                                  </Stack>
+                              </> : <>
+                                  <Stack spacing={1} alignItems="center">
+                                    <Stack direction="row" spacing={1}>
+                                      <Chip label="Funcionário" color="error" />
+                                    </Stack>
+                                  </Stack>
+                              </>}
+                              </TableCell>
+                              <TableCell align="center">{new Date(row.createdAt).toLocaleString('pt-br')}</TableCell>
+                              <TableCell align="right">
+                                <ButtonGroup aria-label="outlined button group">
+                                  <Button color="primary">Alterar</Button>
+                                  <Button color="error">Deletar</Button>
+                                </ButtonGroup>
+                              </TableCell>
                             </TableRow>
                           ))}
                           
