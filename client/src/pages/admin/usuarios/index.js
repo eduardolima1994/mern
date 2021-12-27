@@ -113,7 +113,7 @@ export default function UsuariosListagem() {
                               </> : <>
                                   <Stack spacing={1} alignItems="center">
                                     <Stack direction="row" spacing={1}>
-                                      <Chip label="Funcionário" color="error" />
+                                      <Chip label="Funcionário" color="success" />
                                     </Stack>
                                   </Stack>
                               </>}
