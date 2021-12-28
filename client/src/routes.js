@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 //IMPORTS ADMIN
 
 import Dashboard from './pages/admin/dashboard';
+import Login from './pages/admin/login';
 
 import Produtos from './pages/admin/produtos';
 import ProdutoEditar from './pages/admin/produtos/produtos.editar';
@@ -30,6 +31,7 @@ export default function routes(){
 
                 {/* Rotas Admin */}
                 <Route path='/admin' exact element={<Dashboard/>} />
+                <Route path='/admin/login' exact element={<Login/>} />
                 
                 <Route path='/admin/produtos' exact element={<Produtos/>} />
                 <Route path='/admin/produtos/cadastrar' exact element={<ProdutoCadastrar/>} />
