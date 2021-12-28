@@ -11,6 +11,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import api from '../../../services/api'
+
+import {login, setIdUsuario, setNomeUsuario} from '../../../services/auth'
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -33,11 +37,27 @@ export default function SignIn() {
     const [senha,setSenha] = useState('');
 
     async function handleSubmit(){
-        alert('Autenticar: ' + email);
+        await api.post('/api/usuarios/login', {email,senha})
+        .then(res => {
+            if(res.status === 200){
+                if(res.data.status === 1){
+                    
+                    login(res.data.token);
+                    setIdUsuario(res.data.id_client);
+                    setNomeUsuario(res.data.user_name);
+
+                    window.location.href='/admin';
+                }else if(res.data.status === 2){
+                    alert('Atenção: '+res.data.error);
+                }
+            }else{
+                alert('Erro no servidor!');
+            }
+        })
     }
 
   return (
-    <ThemeProvider theme={theme}>
+    
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -81,7 +101,7 @@ export default function SignIn() {
             />
             
             <Button
-              type="submit"
+              
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -94,6 +114,6 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+    
   );
 }
