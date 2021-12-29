@@ -21,6 +21,8 @@ import UsuarioCadastrar from './pages/admin/usuarios/usuarios.cadastrar';
 import Home from './pages/client/home'
 import ProdutosDetails from './pages/client/produtos/produtos.details'
 
+import PrivateRoute from './services/wAuth';
+
 export default function routes(){
     return (
         <BrowserRouter>
