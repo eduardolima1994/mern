@@ -24,6 +24,7 @@ import ProdutosDetails from './pages/client/produtos/produtos.details'
 import PrivateRoute from './services/wAuth';
 
 export default function routes(){
+    
     return (
         <BrowserRouter>
             <Routes>
@@ -39,9 +40,9 @@ export default function routes(){
                 <Route path='/admin/produtos/cadastrar' exact element={<ProdutoCadastrar/>} />
                 <Route path='/admin/produtos/editar/:idProduto' exact element={<ProdutoEditar/>} />
 
-                
+                <Route element={<PrivateRoute/>}>
                     <Route path='/admin/usuarios' exact element={<Usuarios/>} />
-                
+                </Route>
 
                 <Route path='/admin/usuarios/cadastrar' exact element={<UsuarioCadastrar/>} />
                 <Route path='/admin/usuarios/editar/:idUsuario' exact element={<UsuarioEditar/>} />
