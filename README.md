@@ -1,6 +1,6 @@
 # MERN
 
-Criando um sistema de cadastro de produtos e usuários (CRUD).
+Projeto em criação de um sistema de cadastro de produtos e usuários (CRUD).
 
 Neste momento já foi usado:
 - NodeJS
