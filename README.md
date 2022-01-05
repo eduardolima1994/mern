@@ -7,7 +7,7 @@ Neste momento já foi usado:
 - ExpressJS
 - MongoDB
 - ReactJS
-- Materials UI
+- MaterialsUI
 - HTML5
 - CSS3
 
