@@ -1,6 +1,6 @@
-Projeto em criação de um sistema de cadastro de produtos e usuários (CRUD).
+# App CRUD para cadastro de usuários. 
 
-# App CRUD para cadastro de usuários. Neste momento já foi usado:
+Neste momento já foi usado:
 - NodeJS
 - ExpressJS
 - MongoDB
